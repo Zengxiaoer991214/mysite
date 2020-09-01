@@ -69,6 +69,7 @@ template{
     background-size: 100% 100%;
 }
 .main{
+    /* margin-top: 20%; */
     width: 100%;
     height: 100%;
     display: flex;
