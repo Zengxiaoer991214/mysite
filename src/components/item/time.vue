@@ -12,8 +12,8 @@
       <template v-slot:opposite>
         <span
           :class="`headline font-weight-bold ${year.color}--text`"
-          v-text="year.year"
-        ></span>
+          
+        >{{year.year}}</span>
       </template>
       <div class="py-4">
         <h3 :class="`headline font-weight-light mb-4 ${year.color}--text`">{{year.old}}</h3>

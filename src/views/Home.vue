@@ -34,15 +34,16 @@
         group
       >
         <v-timeline-item
-          v-for="event in timeline"
+          v-for="event in items"
+         
           :key="event.id"
           class="mb-4"
           color="pink"
           small
         >
           <v-row justify="space-between">
-            <v-col cols="7" v-text="event.text"></v-col>
-            <v-col class="text-right" cols="5" v-text="event.time"></v-col>
+            <v-col cols="7" v-text="event.talk"></v-col>
+            <v-col class="text-right" cols="5" v-text="event.date"></v-col>
           </v-row>
         </v-timeline-item>
       </v-slide-x-transition>
@@ -145,6 +146,7 @@
       events: [],
       input: null,
       nonce: 0,
+      items:[]
     }),
 
     computed: {
@@ -152,18 +154,48 @@
         return this.events.slice().reverse()
       },
     },
-
+    mounted() {
+            let that = this;
+        
+            this.$axios.post('/talk.php', {
+            })
+                .then(function (response) {
+                    that.items=response.data;
+                    // console.log(response.data)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    
+                });
+        },
     methods: {
       comment () {
-        const time = (new Date()).toTimeString()
-        this.events.push({
-          id: this.nonce++,
-          text: this.input,
-          time: time.replace(/:\d{2}\sGMT-\d{4}\s\((.*)\)/, (match, contents, offset) => {
+        const times = (new Date()).toTimeString();
+        var time =times.replace(/:\d{2}\sGMT-\d{4}\s\((.*)\)/, (match, contents, offset) => {
             return ` ${contents.split(' ').map(v => v.charAt(0)).join('')}`
-          }),
-        })
-
+          });
+        var timestamp = Date.parse(new Date());
+        var neww = {
+          id: timestamp,
+          talk: this.input,
+          date: time,
+          author:'',
+        };
+        this.items.unshift(neww)
+        this.$axios.post('/talk.php', {
+                        date:time,
+                        talk:this.input,
+                        author:'',
+                    })
+                        .then(function (response) {
+                            // console.log(response.data)
+                             
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+        
+       
         this.input = null
       },
     },
