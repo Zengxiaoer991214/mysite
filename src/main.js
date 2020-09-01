@@ -3,11 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify';
-// import '@mdi/font/css/materialdesignicons.css'
-// import 'font-awesome/css/font-awesome.min.css'
-
+import axios from 'axios'
+Vue.prototype.$axios = axios
 Vue.config.productionTip = false
-
+axios.defaults.baseURL = 'https://api.lin2mei.cn';
 new Vue({
   router,
   store,

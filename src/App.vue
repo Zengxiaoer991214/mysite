@@ -22,7 +22,6 @@ template{
 .body{
   width: 100%;
   height: 100%;
-  /* background: #ddd; */
   display: flex;
   flex-direction: row;
   position: relative;
@@ -30,8 +29,9 @@ template{
 .right{
   width: 95%;
   height: 100%;
-  position: absolute;
+  margin-left: 5%;
   right: 0;
+  position: relative;
 }
 .left{
   width: 5%;
@@ -39,7 +39,7 @@ template{
 }
 
 .mess{
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 .main{
@@ -49,7 +49,9 @@ template{
 }
 .footer{
   width: 99%;
-  height: 5%;
+  /* height: 5%; */
+  bottom: 0;
+  position:absolute;
   justify-content: center;
 }
 

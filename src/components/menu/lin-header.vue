@@ -54,7 +54,7 @@
 </template>
 <style scoped>
 .mx-auto{
-    width:256px;
+    max-width:256px;
     opacity: 0.9;
     position: fixed;
     left:0;
@@ -74,7 +74,7 @@
       item: 0,
       items: [
         { text: 'My Site', icon: 'mdi-folder',url:'/' },
-        { text: 'Small Tallk', icon: 'mdi-account-multiple',url:'/home' },
+        { text: 'Small Tallk', icon: 'mdi-account-multiple',url:'/talk' },
         { text: 'Starred', icon: 'mdi-star' ,url:'/'},
         { text: 'Recent', icon: 'mdi-history' ,url:'/'},
         { text: 'Offline', icon: 'mdi-check-circle' ,url:'/'},

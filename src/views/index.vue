@@ -23,13 +23,13 @@
             <h4>
                 本人计算机专业低才生，平日喜欢写写bug，写出来的全是err，warn。
                 <br>
-                喜欢什么游戏 ？
+                喜欢什么游戏？
                 <br>
                 LOL，戒又戒不掉；和平精英呢？早就没玩了。
                 <br>
                 最近染上新的爱好《新三国》，看了不下七八遍了。不看抖音很久了。
                 <br>
-                擅长那些语言???？
+                擅长那些语言？
                 <br>
                 擅长四川方言、php略知一二、vue正在学习、spring看着真累、dart/node才起步。
             </h4>
@@ -43,12 +43,12 @@
 </template>
 
 <style scoped>
-    .icon {
-       width: 1em; height: 1em;
-       vertical-align: -0.15em;
-       fill: currentColor;
-       overflow: hidden;
-    }
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
 
 template{
     width: 100%;
@@ -81,6 +81,7 @@ template{
     /* background: burlywood; */
 }
 .left{
+    margin-top: 2%;
     width: 50%;
     height: 100%;
     /* background: #fff; */
