@@ -65,6 +65,13 @@ template{
     min-height: 100%;
     width: 100%;
   }
+  .right{
+  width: 100%;
+  height: 100%;
+  /* margin-left: 5%; */
+  /* right: 0; */
+  position: relative;
+}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -95,6 +102,14 @@ export default {
   components:{
     lin_header,
     lin_footer
-  }
+  },
+  mounted(){
+	window.addEventListener('hashchange',()=>{
+		var currentPath = window.location.hash.slice(1); // 获取输入的路由
+		if(this.$router.path !== currentPath){
+			this.$router.push(currentPath); // 动态跳转
+		}
+	},false);
+}
 }
 </script>

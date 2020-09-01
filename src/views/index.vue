@@ -1,7 +1,10 @@
 <template>
 
-    <div class="main">
-        <div class="text">
+    <div class="main ">
+        <!-- <div class="text"> -->
+            <v-flex >
+                <v-row no-gutters>
+                     <v-col cols="12 red" sm="6">
             <h1>Li Lin</h1>
             <h4>
                 <i class="iconfont icon-nianling" style=""></i>
@@ -33,12 +36,17 @@
                 <br>
                 擅长四川方言、php略知一二、vue正在学习、spring看着真累、dart/node才起步。
             </h4>
-        </div>
+        <!-- </div>
 
-        <div class="left">
+        <div class="left"> -->
+            </v-col>
+      <v-col cols="12 blue" sm="6">
             <lin_time>
             </lin_time>
-        </div>
+        <!-- </div> -->
+      </v-col>
+        </v-row>
+        </v-flex>
     </div>
 </template>
 
@@ -65,8 +73,9 @@ template{
     bottom: 0;
     left: 0;
     background: url('https://s1.ax1x.com/2020/05/18/YhIGnO.png');
+    
     opacity:0.4;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 .main{
     /* margin-top: 20%; */
