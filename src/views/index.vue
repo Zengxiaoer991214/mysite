@@ -47,10 +47,12 @@
       </v-col>
         </v-row>
         </v-flex>
+        
     </div>
 </template>
 
 <style scoped>
+
 .icon {
     width: 1em; height: 1em;
     vertical-align: -0.15em;

@@ -6,11 +6,20 @@
         <div class="main">
           <router-view class="mess"/>
         </div>
+        <v-btn class="mx-2 back" fab dark small color="white" v-if="isScroll">
+        <v-icon dark color="red">mdi-arrow-up-drop-circle</v-icon>
+        </v-btn>
         <lin_footer class="footer"></lin_footer>
       </div>
   </v-app>
 </template>
 <style scoped>
+.back{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999;
+}
 template{
   margin: 0;
   padding: 0;
@@ -104,25 +113,6 @@ template{
 
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    .example {background: green;}
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    .example {background: blue;}
-} 
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .example {background: orange;}
-} 
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    .example {background: pink;}
-}
 </style>
 
 <script>
@@ -135,13 +125,35 @@ export default {
     lin_footer,
     lin_phone_header
   },
+  data:()=>({
+    isScroll:false
+  }),
   mounted(){
-	window.addEventListener('hashchange',()=>{
-		var currentPath = window.location.hash.slice(1); // 获取输入的路由
-		if(this.$router.path !== currentPath){
-			this.$router.push(currentPath); // 动态跳转
-		}
-	},false);
-}
+    window.addEventListener('scroll',this.getScrollPosition,false)
+    window.addEventListener('hashchange',()=>{
+      var currentPath = window.location.hash.slice(1); // 获取输入的路由
+      if(this.$router.path !== currentPath){
+        this.$router.push(currentPath); // 动态跳转
+      }
+    },false);
+  },
+  destroyed: function () {
+    window.removeEventListener('scroll',this.getScrollPosition,false)
+  },
+  methods:{
+    getScrollPosition: function () {
+	// 滚动条距顶部距离
+      let top = document.documentElement.scrollTop || document.body.scrollTop;
+      // 滚动条距左端距离
+      console.log(top)
+      if(top>100){
+        this.isScroll=true;
+        console.log(top)
+      }
+      else{
+        this.isScroll=false
+      }
+    }
+  }
 }
 </script>
