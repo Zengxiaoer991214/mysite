@@ -4,6 +4,10 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify';
 import axios from 'axios'
+import { mavonEditor } from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+
+Vue.component("mavon-editor", mavonEditor);
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 axios.defaults.baseURL = 'https://api.lin2mei.cn';

@@ -10,19 +10,21 @@
                 v-for="(img,i) in imgs"
                 :key="i"
                 class="d-flex child-flex"
-                cols="4 "
+                cols="12"
+                sm="4"
                 xl="12"
               >
-                <v-card flat tile class="d-flex">
-                  <v-img
-                    :src="img.url"
-                    
-                    aspect-ratio="1"
-                    class="grey lighten-2"
-                  >
-                   
-                  </v-img>
-                </v-card>
+                  <v-card flat tile class="d-flex mt-2 ">
+                    <v-img
+                      :id="i"  
+                      :src="img.url"
+                      :elevation="hover ? 16 : 2"
+                      aspect-ratio="1"
+                      
+                      class="grey lighten-2 mx-auto img-card rounded-lg"
+                    >
+                    </v-img>
+                  </v-card>
               </v-col>
             </v-row>
           </v-container>
@@ -32,6 +34,11 @@
   </div>
 </template>
 <style scoped>
+
+
+.img-card:hover {
+  box-shadow:  0px 0px 13px #12aad2;
+ }
 
 </style>
 

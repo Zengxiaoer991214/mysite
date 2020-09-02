@@ -28,7 +28,8 @@
             <v-row>
             <v-col v-for="item in color"
                 :key="item[0]"
-                cols="3">
+                cols="12"
+                sm="3">
             <v-card
                 class="mx-auto"
                 width="400"

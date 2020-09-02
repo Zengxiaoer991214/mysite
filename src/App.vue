@@ -6,7 +6,7 @@
         <div class="main">
           <router-view class="mess"/>
         </div>
-        <v-btn class="mx-2 back" fab dark small color="white" v-if="isScroll">
+        <v-btn class="mx-2 back" fab dark small color="white" v-if="isScroll" @click="up_to_top">
         <v-icon dark color="red">mdi-arrow-up-drop-circle</v-icon>
         </v-btn>
         <lin_footer class="footer"></lin_footer>
@@ -145,14 +145,27 @@ export default {
 	// 滚动条距顶部距离
       let top = document.documentElement.scrollTop || document.body.scrollTop;
       // 滚动条距左端距离
-      console.log(top)
+      // console.log(top)
       if(top>100){
         this.isScroll=true;
-        console.log(top)
+        // console.log(top)
       }
       else{
         this.isScroll=false
       }
+    },
+    up_to_top(){
+      // var timer = setInterval(function(){
+      //       let osTop = document.documentElement.scrollTop || document.body.scrollTop;
+      //       let ispeed = Math.floor(-osTop / 5); 
+      //       document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+      //       this.isTop = true;
+      //       if(osTop === 0){
+      //         clearInterval(timer);
+      //       }
+      //     },30)
+
+      this.$vuetify.goTo(0);
     }
   }
 }

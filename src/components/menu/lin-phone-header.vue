@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-tabs
-      background-color="deep-purple accent-4"
+      background-color="blue lighten-2"
       center-active
       dark
       
