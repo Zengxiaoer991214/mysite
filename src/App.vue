@@ -47,11 +47,11 @@ template{
 .footer{
   width: 100%;
   /* height: 5%; */
-  bottom: 0;
+  bottom: -30px;
   position:absolute;
   justify-content: center;
   padding: 0;
-  margin: 0;
+  /* margin-top: 5%; */
 }
 .phone_left{
   display: none;
@@ -96,11 +96,10 @@ template{
 .footer{
   width: 100%;
   /* height: 5%; */
-  bottom: 0;
+  bottom: -30px;
   position:absolute;
   justify-content: center;
   padding: 0;
-  margin: 0;
 }
 
 }
