@@ -25,8 +25,8 @@ export default {
      items: [
         { text: 'My Site', icon: 'mdi-folder',url:'/' },
         { text: 'Small Tallk', icon: 'mdi-account-multiple',url:'/talk' },
-        { text: 'Starred', icon: 'mdi-star' ,url:'/'},
-        { text: 'Recent', icon: 'mdi-history' ,url:'/'},
+        { text: 'color\'s site', icon: 'mdi-star' ,url:'/color'},
+        { text: 'blog', icon: 'mdi-history' ,url:'/mk'},
         { text: 'Offline', icon: 'mdi-check-circle' ,url:'/'},
         { text: 'About Her', icon: 'mdi-upload',url:'/about' },
         { text: 'About Me', icon: 'mdi-cloud-upload' ,url:'/'},
