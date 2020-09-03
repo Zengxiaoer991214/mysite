@@ -1,5 +1,32 @@
 <template>
+  <div>
+     <div class="text-center pa-0 ma-0">
+            <v-snackbar
+            v-model="snackbar"
+            color="success"
+            right
+            top
+            class="pa-0 ma-0"
+            >
+            发送成功！
+
+            <template v-slot:action="{ attrs }">
+                <v-btn
+                color="pink"
+                text
+                v-bind="attrs"
+                left
+                @click="snackbar = false"
+                >
+          
+                </v-btn>
+            </template>
+            </v-snackbar>
+        </div>
+
+
   <v-container style="max-width: 600px;">
+   
     <v-timeline dense clipped>
       <v-timeline-item
         fill-dot
@@ -47,97 +74,9 @@
           </v-row>
         </v-timeline-item>
       </v-slide-x-transition>
-<!-- 
-      <v-timeline-item
-        class="mb-6"
-        hide-dot
-      >
-        <span>TODAY</span>
-      </v-timeline-item>
-
-      <v-timeline-item
-        class="mb-4"
-        color="grey"
-        icon-color="grey lighten-2"
-        small
-      >
-        <v-row justify="space-between">
-          <v-col cols="7">This order was archived.</v-col>
-          <v-col class="text-right" cols="5">15:26 EDT</v-col>
-        </v-row>
-      </v-timeline-item>
-
-      <v-timeline-item
-        class="mb-4"
-        small
-      >
-        <v-row justify="space-between">
-          <v-col cols="7">
-            <v-chip
-              class="white--text ml-0"
-              color="purple"
-              label
-              small
-            >
-              APP
-            </v-chip>
-            Digital Downloads fulfilled 1 item.
-          </v-col>
-          <v-col class="text-right" cols="5">15:25 EDT</v-col>
-        </v-row>
-      </v-timeline-item>
-
-      <v-timeline-item
-        class="mb-4"
-        color="grey"
-        small
-      >
-        <v-row justify="space-between">
-          <v-col cols="7">
-            Order confirmation email was sent to John Leider (john@vuetifyjs.com).
-          </v-col>
-          <v-col class="text-right" cols="5">15:25 EDT</v-col>
-        </v-row>
-      </v-timeline-item>
-
-      <v-timeline-item
-        class="mb-4"
-        hide-dot
-      >
-        <v-btn
-          class="mx-0"
-          color="white"
-        >
-          Resend Email
-        </v-btn>
-      </v-timeline-item>
-
-      <v-timeline-item
-        class="mb-4"
-        color="grey"
-        small
-      >
-        <v-row justify="space-between">
-          <v-col cols="7">
-            A $15.00 USD payment was processed on PayPal Express Checkout
-          </v-col>
-          <v-col class="text-right" cols="5">15:25 EDT</v-col>
-        </v-row>
-      </v-timeline-item> -->
-
-      <!-- <v-timeline-item
-        color="grey"
-        small
-      >
-        <v-row justify="space-between">
-          <v-col cols="7">
-            John Leider placed this order on Online Store (checkout #1937432132572).
-          </v-col>
-          <v-col class="text-right" cols="5">15:25 EDT</v-col>
-        </v-row>
-      </v-timeline-item> -->
     </v-timeline>
   </v-container>
+  </div>
 </template>
 
 <script>
@@ -146,7 +85,8 @@
       events: [],
       input: null,
       nonce: 0,
-      items:[]
+      items:[],
+      snackbar:false
     }),
 
     computed: {
@@ -161,7 +101,6 @@
             })
                 .then(function (response) {
                     that.items=response.data;
-                    // console.log(response.data)
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -188,7 +127,7 @@
                         author:'',
                     })
                         .then(function (response) {
-                            // console.log(response.data)
+                           this.snackbar = true
                              
                         })
                         .catch(function (error) {

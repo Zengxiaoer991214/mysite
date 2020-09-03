@@ -1,11 +1,12 @@
 <template>
     <div>
-        <div class="text-center ma-2">
+        <div class="text-center pa-0 ma-0">
             <v-snackbar
             v-model="snackbar"
             color="success"
             right
             top
+            class="pa-0 ma-0"
             >
             复制成功！
 
@@ -18,14 +19,16 @@
                 @click="snackbar = false"
                 >
           
-        </v-btn>
-      </template>
-    </v-snackbar>
-  </div>
+                </v-btn>
+            </template>
+            </v-snackbar>
+        </div>
 
 
         <v-flex>
-            <v-row>
+            <v-row
+            class="pa-0 ma-0"
+            >
             <v-col v-for="item in color"
                 :key="item[0]"
                 cols="12"
@@ -92,17 +95,14 @@ export default {
     }),
     mounted() {
             this.loadData();
-            this.$store.dispatch("userLogin", true);
-            //Vuex在用户刷新的时候userLogin会回到默认值false，所以我们需要用到HTML5储存
-            //我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录了。
-            localStorage.setItem("Flag", "isLogin");
+   
         },
         methods:{
         loadData(){
                 this.$axios.post('/work/color.php', {
                         })
                             .then((response)=> {
-                                console.log(response.data);
+                                // console.log(response.data);
                                 this.color = response.data;
                             })
                             .catch((error)=> {

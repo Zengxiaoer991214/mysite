@@ -1,10 +1,10 @@
 <template>
-  <v-card>
+  <v-card class="ma-0 pa-0">
     <v-tabs
-      background-color="blue lighten-2"
+      background-color="purple lighten-3"
       center-active
       dark
-      
+      class="ma-0 pa-0"
     >
       <v-tab
         v-for="(item, i) in items"
