@@ -10,9 +10,8 @@
                 v-for="(img,i) in imgs"
                 :key="i"
                 class="d-flex child-flex"
-                
-                sm="4"
-                xl="12"
+                cols="12"
+                sm="3"
               >
                   <v-card flat tile class="d-flex mt-2 ">
                     <v-img

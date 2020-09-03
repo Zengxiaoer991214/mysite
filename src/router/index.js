@@ -13,7 +13,7 @@ Vue.use(VueRouter)
     path: '/about',
     name: 'About',
     meta: {
-      isLogin: true
+      isLogin: false
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/talk/talk.vue')
   },
@@ -52,12 +52,12 @@ Vue.use(VueRouter)
   component: () => import(/* webpackChunkName: "about" */ '../views/work/color.vue')
   },
   {
-  path: '/mk',
-  name: 'mk',
-  // route level code-splitting
-  // this generates a separate chunk (about.[hash].js) for this route
-  // which is lazy-loaded when the route is visited.
-  component: () => import(/* webpackChunkName: "about" */ '../components/markdown.vue')
+    path: '/mk',
+    name: 'mk',
+    meta: {
+      isLogin: true
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../components/markdown.vue')
   },
   {
     path:'/404',

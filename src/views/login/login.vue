@@ -2,11 +2,12 @@
     <div>
         <v-flex>
             <v-row
-
+                class="ma-0 pa-0"
                 justify="center"
                 align="center"
                 >
                 <v-col
+                    class="ma-0 pa-0"
                     cols="12"
                     sm="6"
 
@@ -25,9 +26,14 @@
                         label="Password"
                         required
                     ></v-text-field> 
-                    <div class="my-2">
-                        <v-btn small color="primary" @click="login">Login</v-btn>
+                    <v-row class="ma-0 pa-0" justify="center">
+                    <div class="my-2 mr-4">
+                        <v-btn  color="primary" @click="login">Login</v-btn>
                     </div>
+                    <div class="my-2">
+                        <v-btn  color="warning" @click="loginout">Logout</v-btn>
+                    </div>
+                    </v-row>
                 </v-col>
 
             </v-row>
