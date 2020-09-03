@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '../store'
 
 Vue.use(VueRouter)
   const routes = [
@@ -11,9 +12,9 @@ Vue.use(VueRouter)
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    meta: {
+      isLogin: true
+    },
     component: () => import(/* webpackChunkName: "about" */ '../views/talk/talk.vue')
   },
   {
@@ -62,6 +63,16 @@ Vue.use(VueRouter)
     path:'/404',
     name:'404 err',
     component:()=>import('../views/404.vue')
+  },
+  {
+    path: '/blog',
+    name: 'blog',
+    component:()=>import('../views/blog/blog.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component:()=>import('../views/login/login.vue')
   }
 ]
 
@@ -70,9 +81,25 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
 router.beforeEach((to, from, next) => {
+  
+
+
+
   if (to.matched.length !== 0) {
-    next()
+    if(to.meta.isLogin){
+      if(store.state.isLogin){
+        next()
+      }
+      else{
+        next('/login')
+      }
+    }
+    else{
+      next()
+    }
+    
   } else {
     next({ path: '/404' })
   }

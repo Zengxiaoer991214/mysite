@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-parallax class="div" src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"></v-parallax>
+    <v-parallax class="div" src="https://pic.zengxiaoer.net/mmexport1598715131365.jpg"></v-parallax>
    <v-row>
       <v-col cols="12">
          <v-card>
@@ -10,7 +10,7 @@
                 v-for="(img,i) in imgs"
                 :key="i"
                 class="d-flex child-flex"
-                cols="12"
+                
                 sm="4"
                 xl="12"
               >
