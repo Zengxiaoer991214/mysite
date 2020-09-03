@@ -13,7 +13,7 @@ Vue.use(VueRouter)
     path: '/about',
     name: 'About',
     meta: {
-      isLogin: false
+      isLogin: true
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/talk/talk.vue')
   },
@@ -55,7 +55,7 @@ Vue.use(VueRouter)
     path: '/mk',
     name: 'mk',
     meta: {
-      isLogin: true
+      isLogin: false
     },
     component: () => import(/* webpackChunkName: "about" */ '../components/markdown.vue')
   },
