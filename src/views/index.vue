@@ -4,7 +4,7 @@
         <!-- <div class="text"> -->
             <v-flex >
                 <v-row no-gutters>
-                     <v-col cols="12 red" sm="6">
+                     <v-col cols="12" sm="6">
             <h1>Li Lin</h1>
             <h4>
                 <i class="iconfont icon-nianling" style=""></i>
@@ -40,7 +40,7 @@
 
         <div class="left"> -->
             </v-col>
-      <v-col cols="12 blue" sm="6">
+      <v-col cols="12 mt-12" sm="6">
             <lin_time>
             </lin_time>
         <!-- </div> -->
