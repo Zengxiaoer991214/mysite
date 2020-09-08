@@ -6,8 +6,8 @@
         sm="3"
         class=""
        
-        v-for="n in 9"
-        :key="n"
+        v-for=" item in mess"
+        :key="item[0]"
         
         >
         <v-card
@@ -20,7 +20,7 @@
       height="200px"
       src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
     >
-      <v-card-title class="h2">word word word word word</v-card-title>
+      <v-card-title class="h2">{{item[0]}}</v-card-title>
     </v-img>
 
     <v-card-subtitle class="pb-0 red-text" text-color="light-blue lighten-3">2020-8-19</v-card-subtitle>
@@ -46,6 +46,8 @@
             <v-btn
         color="orange"
         text
+        :idd ="item.id"
+        @click="explore(item[0])"
       >
         Explore
       </v-btn>
@@ -68,6 +70,31 @@
   export default {
     data: () => ({
       //
+      mess:[]
     }),
+    mounted(){
+      this.loadData();
+    },
+    methods:{
+      loadData(){
+                let that = this;
+                this.$axios.post('/blog/blog.php', {
+                    
+                })
+                    .then(function (response) {
+                      that.mess=response.data;
+                      console.log(response.data);
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
+            },
+      explore(e){
+        console.log(e)
+        this.$router.push({path:'/blogs',query:{id:e}
+        }).catch(err=>{
+          })
+      }
+    }
   }
 </script>

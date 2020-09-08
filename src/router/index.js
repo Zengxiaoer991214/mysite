@@ -73,6 +73,16 @@ Vue.use(VueRouter)
     path: '/login',
     name: 'login',
     component:()=>import('../views/login/login.vue')
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component:()=>import('../views/blog/blog_down.vue')
+  },
+  {
+    path: '/blogs',
+    name: 'blogs',
+    component:()=>import('../views/blog/blog_show.vue')
   }
 ]
 
