@@ -102,7 +102,7 @@ export default {
                 this.$axios.post('/work/color.php', {
                         })
                             .then((response)=> {
-                                // console.log(response.data);
+                                console.log(response.data);
                                 this.color = response.data;
                             })
                             .catch((error)=> {

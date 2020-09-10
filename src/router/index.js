@@ -93,10 +93,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  
-
-
-
   if (to.matched.length !== 0) {
     if(to.meta.isLogin){
       if(store.state.isLogin){
