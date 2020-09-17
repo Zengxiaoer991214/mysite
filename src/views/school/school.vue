@@ -1,5 +1,7 @@
 <template>
   <div>
+
+      <h1 style="color:red;">本网站提供的所有内容，仅供学习交流，疫情填报还请各位自己负责，如若发送任何意外，概不负责！！！！！！！！！</h1>
      <div class="text-center pa-0 ma-0">
             <v-snackbar
             v-model="snackbar"
