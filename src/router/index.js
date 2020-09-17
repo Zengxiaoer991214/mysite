@@ -83,6 +83,11 @@ Vue.use(VueRouter)
     path: '/blogs',
     name: 'blogs',
     component:()=>import('../views/blog/blog_show.vue')
+  },
+  {
+    path: '/school',
+    name: 'school',
+    component:()=>import('../views/school/school.vue')
   }
 ]
 
