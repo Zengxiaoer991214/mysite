@@ -39,7 +39,7 @@
         <template v-slot:icon>
           <span>chat</span>
         </template>
-        <h1 style="color:red;">本网站提供的所有内容，仅供学习交流，疫情填报还请各位自己负责，如若发送任何意外，概不负责！！！！！！！！！</h1>
+        <h1 style="color:red;">本网站提供的所有内容，仅供学习交流，疫情填报还请各位自己负责，如若发生任何意外，（亦或者服务器挂掉，导致疫情填报失败！）本网站概不负责！！!!!!概不负责！！！！！！！！！</h1>
          <v-text-field
           v-model="input1"
           hide-details

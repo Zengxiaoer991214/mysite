@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-parallax class="div" src="https://pic.zengxiaoer.net/mmexport1598715131365.jpg"></v-parallax>
+    <v-parallax class="div_" src="https://pic.zengxiaoer.net/mmexport1598715131365.jpg"></v-parallax>
    <v-row>
       <v-col cols="12">
          <v-card>
@@ -38,7 +38,9 @@
 .img-card:hover {
   box-shadow:  0px 0px 13px #12aad2;
  }
-
+.div_{
+  background-position: bottom ;
+}
 </style>
 
 
@@ -57,6 +59,7 @@
                 keys:'',
                 index:6,
                 imgs:[],
+                hover:''
             }
         },
         mounted() {
@@ -129,15 +132,9 @@
                         //console.log(response.data);
 
                             that.imgs=response.data
-                            // console.log(that.img)
-                            // console.log(that.img)
-                            // that.imgs.push(that.img[0])
-                            // that.imgs.push(that.img[1])
-                            // that.imgs.push(that.img[2])
-                            // that.imgs.push(that.img[3])
-                            // that.imgs.push(that.img[4])
-                            // that.imgs.push(that.img[5])
-                            // console.log(that.imgs)
+                            that.imgs.forEach((item)=>{
+                              item = item['url'].substring(0,4)+"s"+item['url'].substring(5)
+                            })
                     })
                     .catch(function (error) {
                         console.log(error);

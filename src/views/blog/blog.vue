@@ -20,28 +20,30 @@
       height="200px"
       src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
     >
-      <v-card-title class="h2">{{item[0]}}</v-card-title>
+      <v-card-title class="h2">{{item[6]}}</v-card-title>
     </v-img>
 
-    <v-card-subtitle class="pb-0 red-text" text-color="light-blue lighten-3">2020-8-19</v-card-subtitle>
+    <v-card-subtitle class="pb-0 red-text" text-color="light-blue lighten-3">{{item[7]}}</v-card-subtitle>
 
     <v-card-text class="text--primary">
       
 
-      <div>Whitsunday Island, Whitsunday Islandshashsahdlasdasdkasdhasdaskjdcgkasckascoadasdadasdasdasdasdasdasdasdolausgfougaou</div>
+      <div>
+
+      </div>
     </v-card-text>
 
     <v-card-actions>
       
 
       <v-icon class="mr-1">mdi-heart</v-icon>
-            <span class="subheading mr-2">256</span>
+            <span class="subheading mr-2">{{item[3]}}</span>
             <span class="mr-1">·</span>
             <v-icon class="mr-1">mdi-share-variant</v-icon>
-            <span class="subheading">45</span>
+            <span class="subheading">{{item[4]}}</span>
             <span class="mr-1">·</span>
             <v-icon class="mr-1">mdi-eye</v-icon>
-            <span class="subheading">45</span>
+            <span class="subheading">{{item[5]}}</span>
 
             <v-btn
         color="orange"
@@ -91,6 +93,8 @@
             },
       explore(e){
         console.log(e)
+
+
         this.$router.push({path:'/blogs',query:{id:e}
         }).catch(err=>{
           })
