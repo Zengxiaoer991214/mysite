@@ -1,7 +1,7 @@
 <template>
   <div>
 
-      <h1 style="color:red;">本网站提供的所有内容，仅供学习交流，疫情填报还请各位自己负责，如若发送任何意外，概不负责！！！！！！！！！</h1>
+      
      <div class="text-center pa-0 ma-0">
             <v-snackbar
             v-model="snackbar"
@@ -39,6 +39,7 @@
         <template v-slot:icon>
           <span>chat</span>
         </template>
+        <h1 style="color:red;">本网站提供的所有内容，仅供学习交流，疫情填报还请各位自己负责，如若发送任何意外，概不负责！！！！！！！！！</h1>
          <v-text-field
           v-model="input1"
           hide-details
@@ -73,21 +74,54 @@
         group
       >
         <v-timeline-item
-          v-for="event in items"
-         
-          :key="event[0]"
+          v-for="(event, index) in items"
+          :key="index"
           class="mb-4"
           color="pink"
           small
         >
           <v-row justify="space-between">
-            <v-col cols="7" v-text="event[1] +'----'+event[2]"></v-col>
-            <v-col class="text-right" cols="5" v-text="event[0]"></v-col>
+            <v-col cols="7">
+              <h3
+                v-for="(itemm, index) in event[1]"
+                    :key="index" 
+              >{{itemm}}</h3>
+
+
+            </v-col>
+            <v-col class="text-right" cols="5" v-text="event[2]"></v-col>
           </v-row>
         </v-timeline-item>
       </v-slide-x-transition>
+
+      
     </v-timeline>
   </v-container>
+  <!-- <v-row justify="center">
+          <v-col
+            v-for="event in items"
+            :key="event.time"
+            cols="12"
+            sm="12"
+            justify="center"
+          >
+            <v-card>
+              <v-card-title class="subheading font-weight-bold">{{ event[2]}}</v-card-title>
+              
+
+              <v-divider></v-divider>
+
+              <v-list dense>
+                <v-list-item v-for="itemm in event[1]"
+                    :key="itemm" 
+                    class="align-end ma-2">{{ itemm }}
+                </v-list-item>
+
+                 
+              </v-list>
+            </v-card>
+          </v-col>
+        </v-row> -->
   </div>
 </template>
 
@@ -99,13 +133,14 @@
       input2: null,
       nonce: 0,
       items:[],
-      snackbar:false
+      snackbar:false,
     }),
 
     computed: {
       timeline () {
         return this.events.slice().reverse()
       },
+       
     },
     mounted() {
             let that = this;
@@ -114,7 +149,14 @@
             })
                 .then(function (response) {
                     console.log(response.data)
-                    that.items=response.data;
+                    // console.log(JSON.parse(response.data))
+                    that.items = response.data
+                    that.items.forEach((i)=>{
+
+                   i[1] = i[1].substring(2,i[1].length-2).split("], [")
+                    })
+                     console.log(that.items)   
+                    
                 })
                 .catch(function (error) {
                     console.log(error);
