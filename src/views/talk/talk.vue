@@ -1,6 +1,20 @@
 <template>
   <div>
-    <v-parallax class="div_" src="https://pic.zengxiaoer.net/mmexport1598715131365.jpg"></v-parallax>
+    <v-parallax class="div_" src="https://pic.zengxiaoer.net/mmexport1598715131365.jpg">
+    
+    <div class="up_" @click="file_up">
+      <!-- <b-card title="上传图片" sub-title="切勿上传色情、涉政图片"> -->
+        <Rui_upload @func='getimgUrl' ></Rui_upload>
+        
+        <el-input v-model="keys" placeholder="请输入密码" show-password></el-input>
+        <el-button type="primary" plain>取消</el-button>
+        <el-button type="success"  @click="upload" plain>上传</el-button>
+    <!-- </b-card> -->
+      
+      <!-- <v-img src="../../static/上传.svg" class="up_2"></v-img> -->
+    </div>
+    
+    </v-parallax>
    <v-row>
       <v-col cols="12">
          <v-card>
@@ -41,15 +55,28 @@
 .div_{
   background-position: bottom ;
 }
+.up_{
+  /* width: 160px;
+  height: 70px; */
+  background-color: rgba(189, 195, 199, 0.5);
+  margin: auto;
+  border-radius: 30px;
+  opacity:0.5;
+}
+.up_2{
+  margin: auto;
+  width:70px;
+  height: 70px;
+}
 </style>
 
 
 <script>
-
+import Rui_upload from '../../components/upload'
     export default {
         name:'talks',
         components:{
-
+          Rui_upload
             
         },
         data(){
@@ -69,6 +96,9 @@
         methods:{
             load(){
                 
+            },
+            file_up(){
+
             },
             simple_s(str1){
                 if(str1==''){
